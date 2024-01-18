@@ -6,10 +6,11 @@ interface UserRequest {
   email: string
   senha: string
   cpf: string
+  rg?: string
 }
 
 class CreateUserService {
-  async execute({ nome, email, senha, cpf }: UserRequest) {
+  async execute({ nome, email, senha, cpf, rg }: UserRequest) {
     if (!email) {
       throw new Error('Email incorreto!')
     }
@@ -20,7 +21,7 @@ class CreateUserService {
       }
     })
 
-    if (!userAlreadyExist) {
+    if (userAlreadyExist) {
       throw new Error('Usuário já existe!')
     }
 
@@ -31,14 +32,16 @@ class CreateUserService {
         nome: nome,
         email: email,
         senha: passwordHash,
-        cpf: cpf
+        cpf: cpf,
+        rg: rg
       },
       select: {
         id: true,
         status: true,
         nome: true,
         email: true,
-        cpf: true
+        cpf: true,
+        rg: true
       }
     })
 
