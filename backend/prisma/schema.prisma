@@ -11,7 +11,8 @@ datasource db {
 }
 
 model Usuario{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
+  codigo_usuario Int @default(autoincrement())
   status Boolean @default(true)
   nome String
   email String
@@ -25,7 +26,8 @@ model Usuario{
 
 }
 model Vendedor{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
+  codigo_vendedor Int @default(autoincrement())
   status Boolean @default(true)
   nome String
   email String
@@ -42,7 +44,8 @@ model Vendedor{
 
 
 model Cliente{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
+  codigo_cliente Int @default(autoincrement())
   razao_social String
   nome_fantasia String
   cnpj String
@@ -59,7 +62,8 @@ model Cliente{
 }
 
 model Produto{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
+  codigo_produto Int @default(autoincrement())
   descricao String
   valor_unitario Float
 
@@ -68,7 +72,7 @@ model Produto{
 }
 
 model Item{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   quantidade Int
   data_criacao DateTime? @default(now()) 
   data_atualizacao DateTime? @default(now())
@@ -80,14 +84,15 @@ model Item{
   proposta Proposta @relation(fields: [id_proposta], references: [id])
 
   @@map("items")
-  id_produto Int
-  id_cliente Int 
-  id_vendedor Int
-  id_proposta Int
+  id_produto String
+  id_cliente String 
+  id_vendedor String
+  id_proposta String
 }
 
 model Proposta{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
+  nro_proposta Int @default(autoincrement())
   status Boolean @default(true)
   valor_total Float
   prazo_pgto Int
