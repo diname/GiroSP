@@ -12,7 +12,7 @@ datasource db {
 
 model Usuario{
   id Int @id @default(autoincrement())
-  status Boolean
+  status Boolean @default(true)
   nome String
   email String
   senha String
@@ -25,6 +25,23 @@ model Usuario{
   data_alteracao DateTime? @default(now())
 
   @@map("usuarios")
+
+}
+model Vendedor{
+  id Int @id @default(autoincrement())
+  status Boolean @default(true)
+  nome String
+  email String
+  senha String
+  cpf String
+  rg String?
+  cargo String?
+  endereco Json?
+  telefone Json?
+  data_criacao DateTime? @default(now())
+  data_alteracao DateTime? @default(now())
+
+  @@map("vendedores")
   itens Item[]
 
 }
@@ -65,18 +82,19 @@ model Item{
 //Relations
   produto Produto @relation(fields: [id_produto], references: [id])
   cliente Cliente @relation(fields: [id_cliente], references: [id])
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  vendedor Vendedor @relation(fields: [id_vendedor], references: [id])
   proposta Proposta @relation(fields: [id_proposta], references: [id])
 
   @@map("items")
   id_produto Int
   id_cliente Int 
-  id_usuario Int
+  id_vendedor Int
   id_proposta Int
 }
 
 model Proposta{
   id Int @id @default(autoincrement())
+  status Boolean @default(true)
   valor_total Float
   prazo_pgto Int
   descricao String?
