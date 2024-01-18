@@ -35,6 +35,7 @@ class CreateUserService {
       },
       select: {
         id: true,
+        status: true,
         nome: true,
         email: true,
         cpf: true
