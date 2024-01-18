@@ -18,9 +18,6 @@ model Usuario{
   senha String
   cpf String
   rg String?
-  cargo String?
-  endereco Json?
-  telefone Json?
   data_criacao DateTime? @default(now())
   data_alteracao DateTime? @default(now())
 
@@ -35,9 +32,6 @@ model Vendedor{
   senha String
   cpf String
   rg String?
-  cargo String?
-  endereco Json?
-  telefone Json?
   data_criacao DateTime? @default(now())
   data_alteracao DateTime? @default(now())
 
@@ -53,8 +47,8 @@ model Cliente{
   nome_fantasia String
   cnpj String
   email String
-  endereco Json?
-  telefone Json?
+  endereco String?
+  telefone String?
   site String?
   data_criacao DateTime? @default(now())
   data_alteracao DateTime? @default(now())
