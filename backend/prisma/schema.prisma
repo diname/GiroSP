@@ -11,73 +11,78 @@ datasource db {
 }
 
 model Usuario{
-  id String @id @default(uuid())
+  id Int @id @default(autoincrement())
+  status Boolean
   nome String
   email String
   senha String
   cpf String
   rg String?
   cargo String?
-
+  endereco Json?
+  telefone Json?
   data_criacao DateTime? @default(now())
   data_alteracao DateTime? @default(now())
 
-  propostas Proposta[]
-
   @@map("usuarios")
+  itens Item[]
 
 }
 
 
 model Cliente{
-  id String @id @default(uuid())
+  id Int @id @default(autoincrement())
   razao_social String
   nome_fantasia String
   cnpj String
   email String
-  endereco String
-  telefone String
+  endereco Json?
+  telefone Json?
   site String?
-
-
   data_criacao DateTime? @default(now())
   data_alteracao DateTime? @default(now())
 
-  propostas Proposta[]
-
   @@map("clientes")
+  itens Item[]
 
 }
 
 model Produto{
-  id String @id @default(uuid())
-  codigo_produto Decimal
+  id Int @id @default(autoincrement())
   descricao String
   valor_unitario Float
 
-  propostas Proposta[]
-
   @@map("produtos")
+  itens Item[]
+}
+
+model Item{
+  id Int @id @default(autoincrement())
+  quantidade Int
+  data_criacao DateTime? @default(now()) 
+  data_atualizacao DateTime? @default(now())
+
+//Relations
+  produto Produto @relation(fields: [id_produto], references: [id])
+  cliente Cliente @relation(fields: [id_cliente], references: [id])
+  usuario Usuario @relation(fields: [id_usuario], references: [id])
+  proposta Proposta @relation(fields: [id_proposta], references: [id])
+
+  @@map("items")
+  id_produto Int
+  id_cliente Int 
+  id_usuario Int
+  id_proposta Int
 }
 
 model Proposta{
-  id String @id @default(uuid())
-  nro_proposta String
-  data_proposta DateTime @default(now())
-  quantidade String
-  valor_total String
-  prazo_pgto String
+  id Int @id @default(autoincrement())
+  valor_total Float
+  prazo_pgto Int
   descricao String?
-
-  clientes Cliente @relation(fields: [id_cliente], references: [id])
-  produtos Produto @relation(fields: [id_produto], references: [id])
-  usuario Usuario @relation(fields: [id_usuario], references: [id])
-
+  data_atualizacao DateTime @default(now())
+  data_criacao DateTime @default(now())
+  
   @@map("propostas")
-  id_cliente String
-  id_produto String
-  id_usuario String
-
-
-
+  itens Item[]
 }
