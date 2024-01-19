@@ -67,8 +67,21 @@ model Produto{
   descricao String
   valor_unitario Float
 
+  categoria Categoria @relation(fields: [id_categoria], references: [id])
+
   @@map("produtos")
+  id_categoria String
   itens Item[]
+}
+
+model Categoria{
+  id String @id @default(uuid())
+  codigo_categoria Int @default(autoincrement())
+  nome_categoria String
+
+  @@map("categorias")
+
+  produtos Produto[]
 }
 
 model Item{
