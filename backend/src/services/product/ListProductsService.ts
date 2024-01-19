@@ -6,7 +6,8 @@ class ListProductsService {
       select: {
         codigo_produto: true,
         descricao: true,
-        valor_unitario: true
+        valor_unitario: true,
+        id_categoria: true
       }
     })
 
