@@ -11,6 +11,7 @@ import { GetUserController } from './controllers/user/GetUserController'
 import { CreateProductController } from './controllers/product/CreateProductController'
 import { ListProductsController } from './controllers/product/ListProductsController'
 import { CreateCategoryController } from './controllers/category/CreateCategoryController'
+import { ListCategoryController } from './controllers/category/ListCategoryController'
 
 const router = Router()
 
@@ -24,6 +25,7 @@ router.post(
   isAuthenticated,
   new CreateCategoryController().handle
 )
+router.get('/categoria', isAuthenticated, new ListCategoryController().handle)
 
 router.post('/produto', isAuthenticated, new CreateProductController().handle)
 router.get('/produtos', isAuthenticated, new ListProductsController().handle)
