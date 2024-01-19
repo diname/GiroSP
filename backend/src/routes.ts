@@ -14,6 +14,7 @@ import { CreateCategoryController } from './controllers/category/CreateCategoryC
 import { ListCategoryController } from './controllers/category/ListCategoryController'
 import { ListByCategoryController } from './controllers/product/ListByCategoryController'
 import { CreateSellerController } from './controllers/seller/CreateSellerController'
+import { ListSellerController } from './controllers/seller/ListSellerController'
 
 const router = Router()
 
@@ -42,5 +43,6 @@ router.get(
 
 // Vendedores
 router.post('/vendedor', isAuthenticated, new CreateSellerController().handle)
+router.get('/vendedor', isAuthenticated, new ListSellerController().handle)
 
 export { router }
