@@ -3,12 +3,13 @@ import { CreateProductService } from '../../services/product/CreateProductServic
 
 class CreateProductController {
   async handle(req: Request, res: Response) {
-    const { descricao, valorUnitario } = req.body
+    const { descricao, valorUnitario, idCategoria } = req.body
     const productService = new CreateProductService()
 
     const product = await productService.execute({
       descricao,
-      valorUnitario
+      valorUnitario,
+      idCategoria
     })
 
     return res.json(product)
