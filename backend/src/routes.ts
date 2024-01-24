@@ -16,6 +16,7 @@ import { ListByCategoryController } from './controllers/product/ListByCategoryCo
 import { CreateSellerController } from './controllers/seller/CreateSellerController'
 import { ListSellerController } from './controllers/seller/ListSellerController'
 import { CreateClienteController } from './controllers/cliente/CreateClienteController'
+import { ListClienteController } from './controllers/cliente/ListClienteController'
 
 const router = Router()
 
@@ -48,5 +49,6 @@ router.get('/vendedor', isAuthenticated, new ListSellerController().handle)
 
 // Clientes
 router.post('/cliente', isAuthenticated, new CreateClienteController().handle)
+router.get('/cliente', isAuthenticated, new ListClienteController().handle)
 
 export { router }
