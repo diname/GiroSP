@@ -10,6 +10,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+
 model Usuario{
   id String @id @default(uuid())
   codigo_usuario Int @default(autoincrement())
@@ -21,6 +23,7 @@ model Usuario{
   rg String?
   data_criacao DateTime? @default(now())
   data_alteracao DateTime? @default(now())
+  access AccessType @default(USER)
 
   @@map("usuarios")
 
@@ -36,6 +39,7 @@ model Vendedor{
   rg String?
   data_criacao DateTime? @default(now())
   data_alteracao DateTime? @default(now())
+  access AccessType @default(VENDEDOR)
 
   @@map("vendedores")
   itens Item[]
@@ -115,4 +119,10 @@ model Proposta{
   
   @@map("propostas")
   itens Item[]
+}
+
+enum AccessType{
+  USER
+  ADMIN
+  VENDEDOR
 }
