@@ -17,12 +17,19 @@ import { CreateSellerController } from './controllers/seller/CreateSellerControl
 import { ListSellerController } from './controllers/seller/ListSellerController'
 import { CreateClienteController } from './controllers/cliente/CreateClienteController'
 import { ListClienteController } from './controllers/cliente/ListClienteController'
+import { AuthSellerController } from './controllers/seller/AuthSellerController'
 
 const router = Router()
+// Login
+router.post('/usuario/login', isAuthenticated, new AuthUserController().handle)
+router.post(
+  '/vendedor/login',
+  isAuthenticated,
+  new AuthSellerController().handle
+)
 
 // Usuários
 router.post('/usuario', isAuthenticated, new CreateUserController().handle)
-router.post('/login', isAuthenticated, new AuthUserController().handle)
 router.get('/usuario', isAuthenticated, new GetUserController().handle)
 router.get('/usuarios', isAuthenticated, new ListUsersController().handle)
 
