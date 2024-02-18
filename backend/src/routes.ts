@@ -43,9 +43,9 @@ router.get('/categoria', isAuthenticated, new ListCategoryController().handle)
 
 // Produtos
 router.post('/produto', isAuthenticated, new CreateProductController().handle)
-router.get('/produtos', isAuthenticated, new ListProductsController().handle)
+router.get('/produto', isAuthenticated, new ListProductsController().handle)
 router.get(
-  '/categoria/produto',
+  '/produto/categoria',
   isAuthenticated,
   new ListByCategoryController().handle
 )
