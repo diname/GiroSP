@@ -42,7 +42,7 @@ model Vendedor{
   access AccessType @default(VENDEDOR)
 
   @@map("vendedores")
-  itens Item[]
+  proposta Proposta[]
 
 }
 
@@ -61,7 +61,7 @@ model Cliente{
   data_alteracao DateTime? @default(now())
 
   @@map("clientes")
-  itens Item[]
+  proposta Proposta[]
 
 }
 
@@ -72,10 +72,11 @@ model Produto{
   valor_unitario Float
 
   categoria Categoria @relation(fields: [id_categoria], references: [id])
+  id_categoria String
 
   @@map("produtos")
-  id_categoria String
-  itens Item[]
+
+  produtoProposta ProdutoProposta?
 }
 
 model Categoria{
@@ -88,23 +89,19 @@ model Categoria{
   produtos Produto[]
 }
 
-model Item{
+model ProdutoProposta{
   id String @id @default(uuid())
   quantidade Int
-  data_criacao DateTime? @default(now()) 
-  data_atualizacao DateTime? @default(now())
 
-//Relations
   produto Produto @relation(fields: [id_produto], references: [id])
-  cliente Cliente @relation(fields: [id_cliente], references: [id])
-  vendedor Vendedor @relation(fields: [id_vendedor], references: [id])
   proposta Proposta @relation(fields: [id_proposta], references: [id])
-
-  @@map("items")
-  id_produto String
-  id_cliente String 
-  id_vendedor String
+  
+  id_produto String @unique
   id_proposta String
+
+  @@map("produtos_proposta")
+
+  
 }
 
 model Proposta{
@@ -116,9 +113,17 @@ model Proposta{
   descricao String?
   data_atualizacao DateTime @default(now())
   data_criacao DateTime @default(now())
+
+  //Relations
+  
+  cliente Cliente @relation(fields: [id_cliente], references: [id])
+  vendedor Vendedor @relation(fields: [id_vendedor], references: [id])
+  id_cliente String
+  id_vendedor String
   
   @@map("propostas")
-  itens Item[]
+
+  produtoProposta ProdutoProposta[]
 }
 
 enum AccessType{
