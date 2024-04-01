@@ -10,123 +10,108 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id       String     @id @default(uuid())
+  id_user  Int        @default(autoincrement())
+  status   Boolean    @default(true)
+  name     String
+  email    String
+  password String
+  cpf      String
+  rg       String?
+  access   AccessType @default(USER)
 
-
-model Usuario{
-  id String @id @default(uuid())
-  codigo_usuario Int @default(autoincrement())
-  status Boolean @default(true)
-  nome String
-  email String
-  senha String
-  cpf String
-  rg String?
-  data_criacao DateTime? @default(now())
-  data_alteracao DateTime? @default(now())
-  access AccessType @default(USER)
-
-  @@map("usuarios")
-
-}
-model Vendedor{
-  id String @id @default(uuid())
-  codigo_vendedor Int @default(autoincrement())
-  status Boolean @default(true)
-  nome String
-  email String
-  senha String
-  cpf String
-  rg String?
-  data_criacao DateTime? @default(now())
-  data_alteracao DateTime? @default(now())
-  access AccessType @default(VENDEDOR)
-
-  @@map("vendedores")
-  proposta Proposta[]
-
+  @@map("users")
 }
 
+model Consultant {
+  id            String     @id @default(uuid())
+  id_consultant Int        @default(autoincrement())
+  status        Boolean    @default(true)
+  name          String
+  email         String
+  password      String
+  cpf           String
+  rg            String?
+  access        AccessType @default(VENDEDOR)
+  proposal      Proposal[]
 
-model Cliente{
-  id String @id @default(uuid())
-  codigo_cliente Int @default(autoincrement())
-  razao_social String
+  @@map("consultants")
+}
+
+model Customer {
+  id            String     @id @default(uuid())
+  id_customer   Int        @default(autoincrement())
+  razao_social  String
   nome_fantasia String
-  cnpj String
-  email String
-  endereco String?
-  telefone String?
-  site String?
-  data_criacao DateTime? @default(now())
-  data_alteracao DateTime? @default(now())
+  cnpj          String
+  email         String
+  adress        String?
+  phone         String?
+  site          String?
+  proposal      Proposal[]
 
-  @@map("clientes")
-  proposta Proposta[]
-
+  @@map("customers")
 }
 
-model Produto{
-  id String @id @default(uuid())
-  codigo_produto Int @default(autoincrement())
-  descricao String
-  valor_unitario Float
+model Product {
+  id            String @id @default(uuid())
+  description   String
+  unitary_value Float
 
-  categoria Categoria @relation(fields: [id_categoria], references: [id])
-  id_categoria String
+  category    Category @relation(fields: [id_category], references: [id])
+  id_category String
+
+  produtoProposta ProposalProducts?
 
   @@map("produtos")
-
-  produtoProposta ProdutoProposta?
 }
 
-model Categoria{
-  id String @id @default(uuid())
-  codigo_categoria Int @default(autoincrement())
-  nome_categoria String
+model Category {
+  id            String @id @default(uuid())
+  id_category   Int    @default(autoincrement())
+  category_name String
 
-  @@map("categorias")
+  products Product[]
 
-  produtos Produto[]
+  @@map("categories")
 }
 
-model ProdutoProposta{
-  id String @id @default(uuid())
-  quantidade Int
+model ProposalProducts {
+  id       String @id @default(uuid())
+  quantity Int
 
-  produto Produto @relation(fields: [id_produto], references: [id])
-  proposta Proposta @relation(fields: [id_proposta], references: [id])
-  
-  id_produto String @unique
-  id_proposta String
+  product  Product  @relation(fields: [id_product], references: [id])
+  proposal Proposal @relation(fields: [id_proposal], references: [id])
 
-  @@map("produtos_proposta")
+  id_product  String @unique
+  id_proposal String
 
-  
+  @@map("proposed_products")
 }
 
-model Proposta{
-  id String @id @default(uuid())
-  nro_proposta Int @default(autoincrement())
-  status Boolean @default(true)
-  valor_total Float
-  prazo_pgto Int
-  descricao String?
-  data_atualizacao DateTime @default(now())
-  data_criacao DateTime @default(now())
+model Proposal {
+  id              String   @id @default(uuid())
+  number_proposal Int      @default(autoincrement())
+  status          Boolean  @default(true)
+  total_price     Float
+  payment_term    Int
+  description     String?
+  createdAt       DateTime @default(now())
 
   //Relations
-  
-  cliente Cliente @relation(fields: [id_cliente], references: [id])
-  vendedor Vendedor @relation(fields: [id_vendedor], references: [id])
-  id_cliente String
-  id_vendedor String
-  
-  @@map("propostas")
 
-  produtoProposta ProdutoProposta[]
+  customer      Customer   @relation(fields: [id_customer], references: [id])
+  consultant    Consultant @relation(fields: [id_consultant], references: [id])
+  id_customer   String
+  id_consultant String
+
+  proposed_products ProposalProducts[]
+
+  @@map("proposals")
 }
 
-enum AccessType{
+enum AccessType {
   USER
   ADMIN
   VENDEDOR
