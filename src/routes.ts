@@ -21,7 +21,7 @@ import { AuthSellerController } from './controllers/seller/AuthSellerController'
 
 const router = Router()
 // Login
-router.post('/usuario/login', isAuthenticated, new AuthUserController().handle)
+router.post('/login', isAuthenticated, new AuthUserController().handle)
 router.post(
   '/vendedor/login',
   isAuthenticated,
