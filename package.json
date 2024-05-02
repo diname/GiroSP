@@ -1,0 +1,11 @@
+{
+  "name": "api-girosp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/diname/GiroSP.git",
+  "author": "Lucas Medina",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
