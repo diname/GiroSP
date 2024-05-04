@@ -6,6 +6,9 @@
   "author": "Lucas Medina",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "dev": "node src/server.js"
+  },
   "dependencies": {
     "express": "^4.19.2"
   }
