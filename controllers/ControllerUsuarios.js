@@ -1,7 +1,5 @@
-class ControllerUsuarios {
-  async listaUsuarios(req, res) {
-    console.log('teste usuarios')
+export class controllerUsuarios {
+  listaUsuarios(req, res) {
+    return res.send('teste usuarios')
   }
 }
-
-export { ControllerUsuarios }
