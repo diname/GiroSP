@@ -1,6 +1,6 @@
 import express from 'express'
-import { controllerUsuarios } from '../controllers/controllerUsuarios.js'
-import { controllerConsultores } from '../controllers/controllerConsultores.js'
+import { controllerUsuarios } from '../src/controllers/controllerUsuarios.js'
+import { controllerConsultores } from '../src/controllers/controllerConsultores.js'
 const routes = express.Router()
 
 routes.get('/', (req, res) => {

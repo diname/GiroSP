@@ -1,7 +1,8 @@
 import express from 'express'
-import router from './routes.js'
+import routes from './routes.js'
+
 const app = express()
 
-app.use(router)
+app.use(routes)
 
 export default app
