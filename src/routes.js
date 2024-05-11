@@ -1,5 +1,5 @@
 import express from 'express'
-import { controllerUsuarios } from '../src/controllers/controllerUsuarios.js'
+import { controllerUsuario } from '../src/controllers/controllerUsuario.js'
 import { controllerConsultores } from '../src/controllers/controllerConsultores.js'
 import { controllerClientes } from './controllers/controllerClientes.js'
 import { controllerCategorias } from './controllers/controllerCategorias.js'
@@ -11,7 +11,7 @@ const routes = express.Router()
 routes.get('/', (req, res) => {
   return res.send('Pagina inicial')
 })
-routes.get('/usuarios', new controllerUsuarios().listaUsuarios)
+routes.get('/usuarios', new controllerUsuario().listaUsuarios)
 routes.get('/consultores', new controllerConsultores().listaConsultores)
 routes.get('/clientes', new controllerClientes().listaClientes)
 routes.get('/categorias', new controllerCategorias().listaCategorias)
