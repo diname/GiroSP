@@ -1,5 +1,8 @@
+import serviceUsuario from '../services/serviceUsuario'
+
 export class controllerUsuario {
-  async listaUsuarios(req, res) {
-    return res.send('Lista de usuarios')
+  async usuarios(req, res) {
+    let usuario = await serviceUsuario.listaUsuarios()
+    return res.send(usuario)
   }
 }

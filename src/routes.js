@@ -11,7 +11,7 @@ const routes = express.Router()
 routes.get('/', (req, res) => {
   return res.send('Pagina inicial')
 })
-routes.get('/usuarios', new controllerUsuario().listaUsuarios)
+routes.get('/usuarios', new controllerUsuario().usuarios)
 routes.get('/consultores', new controllerConsultores().listaConsultores)
 routes.get('/clientes', new controllerClientes().listaClientes)
 routes.get('/categorias', new controllerCategorias().listaCategorias)
