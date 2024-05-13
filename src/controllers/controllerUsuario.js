@@ -1,8 +1,9 @@
-import serviceUsuario from '../services/serviceUsuario'
+import { serviceUsuario } from '../services/serviceUsuario.js'
 
 export class controllerUsuario {
   async usuarios(req, res) {
-    let usuario = await serviceUsuario.listaUsuarios()
+    const service = new serviceUsuario()
+    let usuario = await service.listaUsuarios()
     return res.send(usuario)
   }
 }
