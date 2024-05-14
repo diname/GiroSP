@@ -1,5 +1,6 @@
 export class serviceUsuario {
   async listaUsuarios(req, res) {
-    return 'Teste lista de usuários'
+    const message = `Teste lista de usuários`
+    return message
   }
 }
