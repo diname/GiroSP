@@ -1,5 +1,9 @@
+import { serviceClientes } from '../services/serviceCliente.js'
+
 export class controllerCliente {
   async listaClientes(req, res) {
-    return res.send('Lista de clientes')
+    const service = new serviceClientes()
+    const clientes = await service.listaClientes()
+    return res.send(clientes)
   }
 }
