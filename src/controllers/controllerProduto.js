@@ -1,5 +1,9 @@
+import { serviceProduto } from '../services/serviceProduto.js'
+
 export class controllerProduto {
   async listaProdutos(req, res) {
-    return res.send('Lista de produtos')
+    const service = new serviceProduto()
+    const produtos = await service.listaProdutos()
+    return res.send(produtos)
   }
 }
