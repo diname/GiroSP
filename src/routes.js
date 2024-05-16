@@ -9,7 +9,7 @@ import { controllerProdutosProposta } from './controllers/controllerProdutosProp
 const routes = express.Router()
 
 routes.get('/', (req, res) => {
-  return res.send('Pagina inicial')
+  return res.send('Página inicial')
 })
 routes.get('/usuarios', new controllerUsuario().usuarios)
 routes.get('/consultores', new controllerConsultor().listaConsultores)
