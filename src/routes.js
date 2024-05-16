@@ -11,12 +11,19 @@ const routes = express.Router()
 routes.get('/', (req, res) => {
   return res.send('Página inicial')
 })
-routes.get('/usuarios', new controllerUsuario().usuarios)
+routes.get('/usuarios', new controllerUsuario().listaUsuarios)
+routes.post('/usuario', new controllerUsuario().adicionaUsuario)
+
 routes.get('/consultores', new controllerConsultor().listaConsultores)
+
 routes.get('/clientes', new controllerCliente().listaClientes)
+
 routes.get('/categorias', new controllerCategoria().listaCategorias)
+
 routes.get('/produtos', new controllerProduto().listaProdutos)
+
 routes.get('/propostas', new controllerProposta().listaPropostas)
+
 routes.get(
   '/produtos/:proposta',
   new controllerProdutosProposta().listaProdutosProposta
