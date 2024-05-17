@@ -15,6 +15,7 @@ routes.get('/usuarios', new controllerUsuario().listaUsuarios)
 routes.post('/usuario', new controllerUsuario().adicionaUsuario)
 
 routes.get('/consultores', new controllerConsultor().listaConsultores)
+routes.post('/consultor', new controllerConsultor().adicionaConsultor)
 
 routes.get('/clientes', new controllerCliente().listaClientes)
 
