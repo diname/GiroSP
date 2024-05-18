@@ -18,6 +18,7 @@ routes.get('/consultores', new controllerConsultor().listaConsultores)
 routes.post('/consultor', new controllerConsultor().adicionaConsultor)
 
 routes.get('/clientes', new controllerCliente().listaClientes)
+routes.post('/cliente', new controllerCliente().adicionaCliente)
 
 routes.get('/categorias', new controllerCategoria().listaCategorias)
 

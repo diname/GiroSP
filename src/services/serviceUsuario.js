@@ -5,7 +5,7 @@ export class serviceUsuario {
   }
 
   async adicionaUsuario(req, res) {
-    let message = `Usuário criado com sucesso!`
+    const message = `Usuário criado com sucesso!`
     return message
   }
 }
