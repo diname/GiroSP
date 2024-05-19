@@ -21,6 +21,7 @@ routes.get('/clientes', new controllerCliente().listaClientes)
 routes.post('/cliente', new controllerCliente().adicionaCliente)
 
 routes.get('/categorias', new controllerCategoria().listaCategorias)
+routes.get('/categoria', new controllerCategoria().adicionaCategoria)
 
 routes.get('/produtos', new controllerProduto().listaProdutos)
 

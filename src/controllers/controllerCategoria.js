@@ -6,4 +6,9 @@ export class controllerCategoria {
     let categoria = await service.listaCategorias()
     return res.send(categoria)
   }
+
+  async adicionaCategoria(req, res) {
+    const categoria = await new serviceCategoria().adicionaCategoria()
+    return res.send(categoria)
+  }
 }
