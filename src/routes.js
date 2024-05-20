@@ -24,6 +24,7 @@ routes.get('/categorias', new controllerCategoria().listaCategorias)
 routes.get('/categoria', new controllerCategoria().adicionaCategoria)
 
 routes.get('/produtos', new controllerProduto().listaProdutos)
+routes.get('/produto', new controllerProduto().adicionaProduto)
 
 routes.get('/propostas', new controllerProposta().listaPropostas)
 
