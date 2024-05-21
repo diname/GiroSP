@@ -21,12 +21,13 @@ routes.get('/clientes', new controllerCliente().listaClientes)
 routes.post('/cliente', new controllerCliente().adicionaCliente)
 
 routes.get('/categorias', new controllerCategoria().listaCategorias)
-routes.get('/categoria', new controllerCategoria().adicionaCategoria)
+routes.post('/categoria', new controllerCategoria().adicionaCategoria)
 
 routes.get('/produtos', new controllerProduto().listaProdutos)
-routes.get('/produto', new controllerProduto().adicionaProduto)
+routes.post('/produto', new controllerProduto().adicionaProduto)
 
 routes.get('/propostas', new controllerProposta().listaPropostas)
+routes.get('/proposta', new controllerProposta().adicionaProposta)
 
 routes.get(
   '/produtos/:proposta',
