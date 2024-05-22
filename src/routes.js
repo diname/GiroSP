@@ -33,5 +33,9 @@ routes.get(
   '/produtos/:proposta',
   new controllerProdutosProposta().listaProdutosProposta
 )
+routes.get(
+  '/produto/:proposta',
+  new controllerProdutosProposta().adicionaProdutoProposta
+)
 
 export default routes
