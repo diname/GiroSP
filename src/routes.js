@@ -33,7 +33,7 @@ routes.get(
   '/produtos/:proposta',
   new controllerProdutosProposta().listaProdutosProposta
 )
-routes.get(
+routes.post(
   '/produto/:proposta',
   new controllerProdutosProposta().adicionaProdutoProposta
 )
