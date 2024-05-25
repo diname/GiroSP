@@ -1,10 +1,10 @@
 export class serviceProposta {
-  async listaPropostas(req, res) {
+  async listaPropostas() {
     const message = `Teste lista de propostas`
     return message
   }
 
-  async adicionaProposta(req, res) {
+  async adicionaProposta() {
     const message = `Proposta adicionada com sucesso!`
     return message
   }
