@@ -1,9 +1,9 @@
 export class serviceConsultor {
-  async listaConsultores(req, res) {
+  async listaConsultores() {
     const result = `Teste lista de consultores`
     return result
   }
-  async adicionaConsultor(req, res) {
+  async adicionaConsultor() {
     const result = `Consultor adicionado com sucesso!`
     return result
   }
