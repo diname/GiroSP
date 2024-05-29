@@ -1,10 +1,10 @@
 export class serviceCliente {
-  async listaClientes(req, res) {
+  async listaClientes() {
     const message = `Teste lista de clientes`
     return message
   }
 
-  async adicionaCliente(req, res) {
+  async adicionaCliente() {
     const message = `Cliente adicionado com sucesso!`
     return message
   }
