@@ -4,8 +4,8 @@ export class serviceUsuario {
     return message
   }
 
-  async adicionaUsuario() {
-    const message = `Usuário criado com sucesso!`
+  async adicionaUsuario(nome, email) {
+    const message = `Usuário ${nome} criado com sucesso, email ${email}!`
     return message
   }
 }
