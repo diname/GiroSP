@@ -5,7 +5,6 @@ export class serviceUsuario {
   }
 
   async adicionaUsuario(nome, email) {
-    const message = `Usuário ${nome} criado com sucesso, email ${email}!`
-    return message
+    return `Usuário ${nome} criado com sucesso!`
   }
 }
