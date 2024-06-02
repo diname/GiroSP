@@ -15,6 +15,6 @@ export class controllerProdutosProposta {
         proposta,
         nome
       )
-    return res.send(produtoProposta)
+    return res.status(201).send(produtoProposta)
   }
 }

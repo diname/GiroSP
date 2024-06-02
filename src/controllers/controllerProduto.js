@@ -7,7 +7,8 @@ export class controllerProduto {
   }
 
   async adicionaProduto(req, res) {
-    const produto = await new serviceProduto().adicionaProduto()
-    return res.send(produto)
+    const { nome } = req.body
+    const produto = await new serviceProduto().adicionaProduto(nome)
+    return res.status(201).send(produto)
   }
 }

@@ -7,7 +7,8 @@ export class controllerCliente {
   }
 
   async adicionaCliente(req, res) {
-    const cliente = await new serviceCliente().adicionaCliente()
-    return res.send(cliente)
+    const { nome } = req.body
+    const cliente = await new serviceCliente().adicionaCliente(nome)
+    return res.status(201).send(cliente)
   }
 }

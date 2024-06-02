@@ -4,8 +4,7 @@ export class serviceCliente {
     return message
   }
 
-  async adicionaCliente() {
-    const message = `Cliente adicionado com sucesso!`
-    return message
+  async adicionaCliente(nome) {
+    return `Cliente ${nome} adicionado com sucesso!`
   }
 }

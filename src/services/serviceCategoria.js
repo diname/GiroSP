@@ -4,8 +4,7 @@ export class serviceCategoria {
     return message
   }
 
-  async adicionaCategoria() {
-    const message = `Categoria adicionada com sucesso!`
-    return message
+  async adicionaCategoria(nome) {
+    return `Categoria ${nome} adicionada com sucesso!`
   }
 }

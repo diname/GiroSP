@@ -7,7 +7,8 @@ export class controllerProposta {
   }
 
   async adicionaProposta(req, res) {
-    const proposta = await new serviceProposta().adicionaProposta()
-    return res.send(proposta)
+    const { nrProposta } = req.body
+    const proposta = await new serviceProposta().adicionaProposta(nrProposta)
+    return res.status(201).send(proposta)
   }
 }

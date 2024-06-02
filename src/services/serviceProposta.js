@@ -1,11 +1,9 @@
 export class serviceProposta {
   async listaPropostas() {
-    const message = `Teste lista de propostas`
-    return message
+    return `Teste lista de propostas`
   }
 
-  async adicionaProposta() {
-    const message = `Proposta adicionada com sucesso!`
-    return message
+  async adicionaProposta(nrProposta) {
+    return `Proposta ${nrProposta} adicionada com sucesso!`
   }
 }

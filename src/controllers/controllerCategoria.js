@@ -8,7 +8,8 @@ export class controllerCategoria {
   }
 
   async adicionaCategoria(req, res) {
-    const categoria = await new serviceCategoria().adicionaCategoria()
-    return res.send(categoria)
+    const { nome } = req.body
+    const categoria = await new serviceCategoria().adicionaCategoria(nome)
+    return res.status(201).send(categoria)
   }
 }

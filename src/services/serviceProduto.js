@@ -4,8 +4,7 @@ export class serviceProduto {
     return message
   }
 
-  async adicionaProduto() {
-    const message = `Produto cadastrado com sucesso!`
-    return message
+  async adicionaProduto(nome) {
+    return `Produto ${nome} cadastrado com sucesso!`
   }
 }

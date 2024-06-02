@@ -3,8 +3,7 @@ export class serviceConsultor {
     const result = `Teste lista de consultores`
     return result
   }
-  async adicionaConsultor() {
-    const result = `Consultor adicionado com sucesso!`
-    return result
+  async adicionaConsultor(nome, email) {
+    return `Consultor ${nome} adicionado com sucesso!`
   }
 }
