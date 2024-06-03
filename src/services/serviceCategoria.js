@@ -1,7 +1,6 @@
 export class serviceCategoria {
   async listaCategorias() {
-    const message = `Teste lista de categorias`
-    return message
+    return `Teste lista de categorias`
   }
 
   async adicionaCategoria(nome) {

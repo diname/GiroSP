@@ -1,7 +1,6 @@
 export class serviceProduto {
   async listaProdutos() {
-    const message = `Teste lista de produtos`
-    return message
+    return `Teste lista de produtos`
   }
 
   async adicionaProduto(nome) {

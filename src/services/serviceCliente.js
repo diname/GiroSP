@@ -1,7 +1,6 @@
 export class serviceCliente {
   async listaClientes() {
-    const message = `Teste lista de clientes`
-    return message
+    return `Teste lista de clientes`
   }
 
   async adicionaCliente(nome) {

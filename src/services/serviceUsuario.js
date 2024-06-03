@@ -1,7 +1,6 @@
 export class serviceUsuario {
   async listaUsuarios() {
-    const message = `Teste lista de usuários`
-    return message
+    return `Teste lista de usuários`
   }
 
   async adicionaUsuario(nome, email) {
