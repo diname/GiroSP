@@ -7,8 +7,14 @@ export class controllerUsuario {
   }
 
   async adicionaUsuario(req, res) {
-    const { nome, email } = req.body
-    const usuario = await new serviceUsuario().adicionaUsuario(nome, email)
+    const { nome, email, senha, cpf, rg } = req.body
+    const usuario = await new serviceUsuario().adicionaUsuario(
+      nome,
+      email,
+      senha,
+      cpf,
+      rg
+    )
     return res.status(201).send(usuario)
   }
 }
