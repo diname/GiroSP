@@ -15,7 +15,6 @@ export class serviceUsuario {
         rg: rg
       }
     })
-    // return `Usuário ${nome} criado com sucesso!`
-    return user
+    return `Usuário criado com sucesso!`
   }
 }
