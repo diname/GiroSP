@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@prisma/client@^5.15.0":
+  version "5.15.0"
+  resolved "https://registry.npmjs.org/@prisma/client/-/client-5.15.0.tgz"
+  integrity sha512-wPTeTjbd2Q0abOeffN7zCDCbkp9C9cF+e9HPiI64lmpehyq2TepgXE+sY7FXr7Rhbb21prLMnhXX27/E11V09w==
+
 "@prisma/debug@5.15.0":
   version "5.15.0"
   resolved "https://registry.npmjs.org/@prisma/debug/-/debug-5.15.0.tgz"
@@ -534,7 +539,7 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-prisma@^5.15.0:
+prisma@*, prisma@^5.15.0:
   version "5.15.0"
   resolved "https://registry.npmjs.org/prisma/-/prisma-5.15.0.tgz"
   integrity sha512-JA81ACQSCi3a7NUOgonOIkdx8PAVkO+HbUOxmd00Yb8DgIIEpr2V9+Qe/j6MLxIgWtE/OtVQ54rVjfYRbZsCfw==
