@@ -2,7 +2,8 @@ import prisma from '../prisma/prisma.js'
 
 export class serviceUsuario {
   async listaUsuarios() {
-    return `Teste lista de usuários`
+    const users = prisma.usuario.findMany()
+    return users
   }
 
   async adicionaUsuario(nome, email, senha, cpf, rg) {
