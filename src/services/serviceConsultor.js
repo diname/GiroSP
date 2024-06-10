@@ -2,15 +2,19 @@ import prisma from '../prisma/prisma.js'
 
 export class serviceConsultor {
   async listaConsultores() {
-    return `Teste lista de consultores`
+    const consultores = await prisma.consultor.findMany()
+    return consultores
   }
-  async adicionaConsultor(nome, email) {
+  async adicionaConsultor(nome, email, senha, cpf, rg) {
     const consultor = await prisma.consultor.create({
       data: {
         nome: nome,
-        email: email
+        email: email,
+        senha: senha,
+        cpf: cpf,
+        rg: rg
       }
     })
-    return `Consultor ${nome} adicionado com sucesso!`
+    return `Consultor adicionado com sucesso!`
   }
 }

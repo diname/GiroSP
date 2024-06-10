@@ -7,10 +7,13 @@ export class controllerConsultor {
   }
 
   async adicionaConsultor(req, res) {
-    const { nome, email } = req.body
+    const { nome, email, senha, cpf, rg } = req.body
     const consultor = await new serviceConsultor().adicionaConsultor(
       nome,
-      email
+      email,
+      senha,
+      cpf,
+      rg
     )
     return res.status(201).send(consultor)
   }
