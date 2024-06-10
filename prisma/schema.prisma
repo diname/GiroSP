@@ -21,3 +21,15 @@ model Usuario {
 
   @@map("usuarios")
 }
+
+model Consultor {
+  id     String  @id @default(uuid())
+  status Boolean @default(true)
+  nome   String
+  email  String
+  senha  String
+  cpf    String
+  rg     String?
+
+  @@map("consultores")
+}
