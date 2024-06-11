@@ -33,3 +33,16 @@ model Consultor {
 
   @@map("consultores")
 }
+
+model Cliente {
+  id            String  @id @default(uuid())
+  razao_social  String
+  nome_fantasia String
+  cnpj          String
+  email         String
+  endereco      String?
+  telefone      String?
+  site          String?
+
+  @@map("clientes")
+}
