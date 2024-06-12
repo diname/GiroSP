@@ -46,3 +46,11 @@ model Cliente {
 
   @@map("clientes")
 }
+
+model Produto {
+  id             String @id @default(uuid())
+  descricao      String
+  valor_unitario Float
+
+  @@map("produtos")
+}
